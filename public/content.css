@@ -1,0 +1,106 @@
+
+#bd-see-button {
+  position: fixed;
+  z-index: 2147483647;
+  display: none;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font: 600 13px Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 14px #0003;
+}
+
+#bd-dictionary-panel {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 2147483646;
+  width: 360px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #f8fafc;
+  color: #172033;
+  box-shadow: 6px 0 24px #0003;
+  transform: translateX(-105%);
+  transition: transform 0.25s ease;
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#bd-dictionary-panel.bd-open {
+  transform: translateX(0);
+}
+
+#bd-dictionary-panel * {
+  box-sizing: border-box;
+}
+
+.bd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bd-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+#bd-close-button {
+  border: none;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #172033;
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.bd-body {
+  padding: 18px;
+}
+
+.bd-word {
+  font-size: 28px;
+  overflow-wrap: anywhere;
+  margin: 8px 0;
+}
+
+.bd-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.bd-card {
+  padding: 16px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.bd-bangla {
+  color: #166534;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.bd-text {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.bd-note {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}

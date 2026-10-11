@@ -1,0 +1,27 @@
+
+{
+  "manifest_version": 3,
+  "name": "Bangla Dictionary",
+  "version": "1.0.0",
+  "description": "Look up English words and their Bangla meanings while browsing.",
+  "permissions": [
+    "sidePanel",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Bangla Dictionary"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
