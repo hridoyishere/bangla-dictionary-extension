@@ -6,7 +6,8 @@
   "description": "Look up English words and their Bangla meanings while browsing.",
   "permissions": [
     "sidePanel",
-    "activeTab"
+    "storage",
+    "windows"
   ],
   "background": {
     "service_worker": "background.js"

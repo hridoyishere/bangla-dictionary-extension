@@ -3,15 +3,28 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  color: #172033;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   margin: 0;
   min-width: 280px;
-  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  min-height: 100vh;
   background: #f8fafc;
-  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
 }
 
 .dictionary {
+  width: 100%;
   padding: 20px 16px;
 }
 
@@ -25,6 +38,7 @@ body {
 .logo {
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   border-radius: 13px;
@@ -47,6 +61,7 @@ body {
 
 .search {
   display: flex;
+  align-items: stretch;
   gap: 8px;
   margin-bottom: 25px;
 }
@@ -64,38 +79,46 @@ body {
 
 .search input:focus {
   border-color: #2563eb;
+  box-shadow: 0 0 0 2px #2563eb20;
 }
 
 .search button {
-  width: 46px;
   flex-shrink: 0;
+  padding: 0 12px;
   border: none;
   border-radius: 10px;
   background: #2563eb;
   color: white;
-  font-size: 26px;
+  font-size: 13px;
   cursor: pointer;
+}
+
+.search button:hover {
+  background: #1d4ed8;
 }
 
 .word-heading {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
 .word-heading h2 {
   margin: 0;
-  font-size: 28px;
   overflow-wrap: anywhere;
+  font-size: 28px;
 }
 
 .pronunciation {
+  margin-top: 8px;
   color: #64748b;
   font-size: 12px;
+  line-height: 1.5;
 }
 
 .word-icon {
+  flex-shrink: 0;
   padding: 12px;
   border-radius: 12px;
   background: #dbeafe;
@@ -113,25 +136,26 @@ body {
 
 .section h3 {
   margin: 0 0 10px;
-  font-size: 13px;
   color: #64748b;
+  font-size: 13px;
 }
 
 .section p {
   margin: 0;
   font-size: 14px;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-.bangla {
-  font-size: 20px !important;
+.section .bangla {
   color: #166534;
-  line-height: 1.8 !important;
+  font-size: 20px;
+  line-height: 1.8;
 }
 
 .example {
-  background: #eff6ff;
   border-color: #dbeafe;
+  background: #eff6ff;
 }
 
 .empty {
@@ -140,8 +164,8 @@ body {
 }
 
 .empty-icon {
-  font-size: 42px;
   color: #2563eb;
+  font-size: 42px;
 }
 
 .empty h3 {
@@ -151,12 +175,100 @@ body {
 .empty p {
   color: #64748b;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 footer {
   margin-top: 30px;
-  text-align: center;
+  padding-bottom: 10px;
   color: #94a3b8;
   font-size: 11px;
+  text-align: center;
+}
+
+
+
+
+.header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.close-button {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: #cbd5e1;
+}
+
+.verb-forms {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.verb-forms > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px 6px;
+  border-radius: 9px;
+  background: #eff6ff;
+  text-align: center;
+}
+
+.verb-forms span {
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.verb-forms strong {
+  color: #1d4ed8;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.closed-screen {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.closed-screen p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.reopen-button {
+  margin-top: 12px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.reopen-button:hover {
+  background: #1d4ed8;
+}
+.extra-form {
+  margin-top: 10px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
 }

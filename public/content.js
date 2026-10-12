@@ -1,14 +1,20 @@
-
 (() => {
-  let lookupButton;
+  let lookupButton = null;
 
   function removeButton() {
-    lookupButton?.remove();
-    lookupButton = null;
+    if (lookupButton) {
+      lookupButton.remove();
+      lookupButton = null;
+    }
   }
 
   document.addEventListener("mouseup", (event) => {
-    if (lookupButton?.contains(event.target)) return;
+    if (lookupButton?.contains(event.target)) {
+      return;
+    }
+
+    const x = event.clientX;
+    const y = event.clientY;
 
     setTimeout(() => {
       const selection = window.getSelection();
@@ -16,36 +22,57 @@
 
       removeButton();
 
-      if (!word || word.length > 80) return;
+      // Ignore empty selections and excessively long text.
+      if (!word || word.length > 80) {
+        return;
+      }
+
+      // Avoid showing the button for whitespace only.
+      if (!/[a-zA-Z]/.test(word)) {
+        return;
+      }
 
       lookupButton = document.createElement("button");
       lookupButton.textContent = "See meaning";
-      lookupButton.style.cssText = `
-        position: fixed;
-        z-index: 2147483647;
-        top: ${Math.min(event.clientY + 12, window.innerHeight - 45)}px;
-        left: ${Math.min(event.clientX + 12, window.innerWidth - 130)}px;
-        padding: 9px 13px;
-        background: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 3px 12px #0003;
-        cursor: pointer;
-        font: 13px Arial, sans-serif;
-      `;
+      lookupButton.type = "button";
+
+      Object.assign(lookupButton.style, {
+        position: "fixed",
+        zIndex: "2147483647",
+        top: `${Math.max(8, Math.min(y + 12, window.innerHeight - 48))}px`,
+        left: `${Math.max(8, Math.min(x + 12, window.innerWidth - 125))}px`,
+        padding: "10px 14px",
+        background: "#2563eb",
+        color: "#ffffff",
+        border: "none",
+        borderRadius: "8px",
+        boxShadow: "0 3px 12px #0003",
+        cursor: "pointer",
+        font: "14px Arial, sans-serif",
+      });
 
       lookupButton.addEventListener("mousedown", (e) => {
+        // Preserve the webpage selection while clicking.
         e.preventDefault();
       });
 
-      lookupButton.addEventListener("click", () => {
-        chrome.runtime.sendMessage({
-          type: "LOOKUP_WORD",
-          word
-        });
+      lookupButton.addEventListener("click", async () => {
+        const selectedWord = word;
 
         removeButton();
+
+        try {
+          const response = await chrome.runtime.sendMessage({
+            type: "LOOKUP_WORD",
+            word: selectedWord,
+          });
+
+          if (!response?.success) {
+            console.error("Dictionary could not open:", response?.error);
+          }
+        } catch (error) {
+          console.error("Dictionary extension error:", error);
+        }
       });
 
       document.body.appendChild(lookupButton);
@@ -57,4 +84,12 @@
       removeButton();
     }
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      removeButton();
+    }
+  });
+
+  window.addEventListener("scroll", removeButton, true);
 })();
