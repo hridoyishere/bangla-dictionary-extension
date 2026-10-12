@@ -2,7 +2,7 @@
 
 An English-to-Bangla browser extension that helps users understand English words while browsing the web. Select a word, click **See meaning**, and view its Bangla meaning and verb forms in a convenient side panel.
 
-## ✨ Features
+## Features
 
 - **Instant Word Lookup:** Select English text on a webpage and look up its meaning.
 - **English to Bangla:** View Bangla meanings from a local dictionary dataset.
@@ -14,17 +14,19 @@ An English-to-Bangla browser extension that helps users understand English words
 
 ## Screenshots
 <img src="./src/assets/Screenshot from 2026-10-13 00-10-55.png"/>
-<img src="./src/assets/Screenshot from 2026-10-13 00-10-12.png"/>
-<img src="./src/assets/Screenshot from 2026-10-13 00-11-38.png"/>
+
+
 ### YouTube
 
 Select English text from a YouTube video description to look up its Bangla meaning.
+<img src="./src/assets/Screenshot from 2026-10-13 00-11-38.png"/>
 
 ![Bangla Dictionary on YouTube](screenshots/youtube-lookup.png)
 
 ### Facebook
 
 Look up English words from Facebook posts and other supported webpage text.
+<img src="./src/assets/Screenshot from 2026-10-13 00-10-12.png"/>
 
 ![Bangla Dictionary on Facebook](screenshots/facebook-lookup.png)
 
