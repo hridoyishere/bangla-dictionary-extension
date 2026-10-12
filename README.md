@@ -13,7 +13,7 @@ An English-to-Bangla browser extension that helps users understand English words
 - **Fast Local Search:** Search dictionary entries locally without needing a server for each lookup.
 
 ## Screenshots
-<img src="./src/assets/Screenshot from 2026-10-13 00-10-55.png"/>
+<img src="./src/assets/Screenshot from 2026-10-13 00-33-23.png"/>
 
 
 ### YouTube
@@ -21,14 +21,12 @@ An English-to-Bangla browser extension that helps users understand English words
 Select English text from a YouTube video description to look up its Bangla meaning.
 <img src="./src/assets/Screenshot from 2026-10-13 00-11-38.png"/>
 
-![Bangla Dictionary on YouTube](screenshots/youtube-lookup.png)
 
 ### Facebook
 
 Look up English words from Facebook posts and other supported webpage text.
 <img src="./src/assets/Screenshot from 2026-10-13 00-10-12.png"/>
 
-![Bangla Dictionary on Facebook](screenshots/facebook-lookup.png)
 
 ## 🛠️ Technologies Used
 
@@ -49,7 +47,7 @@ This project uses English-to-Bangla dictionary data and a verb-forms dataset to 
 1. Clone this repository:
 
    ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
+   git clone https://github.com/hridoyishere/bangla-dictionary-extension.git
    ```
 
 2. Open the project folder:
